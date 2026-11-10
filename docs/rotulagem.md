@@ -15,4 +15,6 @@ Calcular concordância bruta e kappa de Cohen ponderado entre os rótulos indepe
 
 Grave as divergências adjudicadas em `data/noticias/consenso.csv` com as colunas `id_aesa,rotulo_consenso`. O validador mede concordância nos pares independentes, agrega os casos concordantes e só calcula F1 macro e matrizes de confusão dos classificadores quando há 200 textos válidos e adjudicados com saída automática. Se candidatos não estiverem presentes no corpus deduplicado, acrescente candidatos classificados e rotulados até atingir a meta.
 
-A auditoria de cobertura confirmou que 215 dos 220 candidatos têm uma saída correspondente no corpus deduplicado. Comece por esses 215 ou acrescente textos do corpus com URL disponível se houver mais de 15 casos sem leitura ou sem rótulo válido.
+Os 220 candidatos em cada ficha têm as duas saídas automáticas correspondentes. Essas saídas ficam em arquivo separado das fichas. O excedente de 20 permite substituir textos indisponíveis antes de atingir o mínimo de 200 pares utilizáveis.
+
+Após preencher as fichas e o consenso, execute `python src/avaliar_noticias.py` na raiz do projeto para gerar concordância, F1 macro, métricas por classe e matrizes de confusão sem retreinar os modelos hidrológicos.

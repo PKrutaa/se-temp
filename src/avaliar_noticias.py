@@ -1,10 +1,12 @@
 """Validação humana opcional e ablação temporal de um ajuste aos resíduos."""
 import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
-from sklearn.metrics import accuracy_score, cohen_kappa_score, confusion_matrix, f1_score
+from sklearn.metrics import (accuracy_score, cohen_kappa_score, confusion_matrix, f1_score,
+                             precision_recall_fscore_support)
 
 from referencia import TESTE_INICIO
 
@@ -13,6 +15,9 @@ def validar(pasta, saida):
     auto = pd.read_csv(pasta / "classificacao_automatica.csv")
     fichas = [pd.read_csv(pasta / f"anotador_{n}.csv")[["id_aesa", "rotulo"]]
               .rename(columns={"rotulo": f"rotulo_{n}"}) for n in (1, 2)]
+    for n, ficha in enumerate(fichas, 1):
+        campo = f"rotulo_{n}"
+        ficha[campo] = pd.to_numeric(ficha[campo], errors="coerce")
     pares = fichas[0].merge(fichas[1], on="id_aesa", validate="1:1")
     pares = pares[pares.rotulo_1.isin([0, 1, 2]) & pares.rotulo_2.isin([0, 1, 2])]
     status = {"pares_humanos_validos": len(pares), "minimo": 200}
@@ -24,6 +29,7 @@ def validar(pasta, saida):
         consenso = pasta / "consenso.csv"
         if consenso.exists():
             adjudicado = pd.read_csv(consenso)[["id_aesa", "rotulo_consenso"]]
+            adjudicado["rotulo_consenso"] = pd.to_numeric(adjudicado.rotulo_consenso, errors="coerce")
             pares = pares.merge(adjudicado, on="id_aesa", how="left", validate="1:1")
         else:
             pares["rotulo_consenso"] = np.nan
@@ -36,7 +42,15 @@ def validar(pasta, saida):
         if len(validacao) >= 200:
             for nome in ("llm", "lexical"):
                 y, p = validacao.rotulo_consenso, validacao[f"rotulo_{nome}"]
-                status[nome] = {"F1_macro": f1_score(y, p, average="macro", labels=[0, 1, 2],
+                classes = [0, 1, 2]
+                pr, re, f1, suporte = precision_recall_fscore_support(
+                    y, p, labels=classes, zero_division=0
+                )
+                status[nome] = {"por_classe": {
+                    str(c): {"precisao": float(pr[c]), "recall": float(re[c]),
+                             "F1": float(f1[c]), "suporte": int(suporte[c])}
+                    for c in classes
+                }, "F1_macro": f1_score(y, p, average="macro", labels=[0, 1, 2],
                                                      zero_division=0),
                                 "confusao": confusion_matrix(y, p, labels=[0, 1, 2]).tolist()}
     status["validacao_humana_concluida"] = "llm" in status
@@ -81,3 +95,7 @@ def ablar(previsoes, vencedor, arquivo_indice, saida):
     tabela.to_csv(saida / "ablacao_noticias.csv")
     pares.to_csv(saida / "ablacao_pares.csv.gz", index=False)
     return tabela
+
+
+if __name__ == "__main__":
+    print(json.dumps(validar(Path("data/noticias"), Path("resultados")), ensure_ascii=False, indent=2))

@@ -1,17 +1,14 @@
-"""Prepara uma fila cega para dois anotadores humanos do corpus AESA."""
+"""Gera duas fichas cegas a partir do corpus AESA já classificado."""
 import csv
-import html
-import json
 from pathlib import Path
 import random
 import re
 import unicodedata
-from urllib.parse import urlencode
-from urllib.request import urlopen
 
 API = "https://www.aesa.pb.gov.br/wp-json/wp/v2/posts"
 TERMOS = re.compile(r"\b(seca|secas|estiagem|racionamento|desabastecimento|escassez|"
                     r"acude|acudes|reservatorio|reservatorios|colapso)\b")
+CAMPOS_PUBLICOS = ("id_aesa", "publicado_em", "modificado_em", "url", "titulo")
 
 
 def normalizar(texto):
@@ -19,44 +16,41 @@ def normalizar(texto):
     return " ".join(sem_acentos.lower().split())
 
 
-def listar_publicacoes():
-    pagina = 1
-    while True:
-        parametros = {"_fields": "id,date,modified,link,title", "per_page": 100, "page": pagina,
-                      "before": "2026-11-01T00:00:00", "orderby": "date", "order": "asc"}
-        with urlopen(f"{API}?{urlencode(parametros)}", timeout=30) as resposta:
-            paginas = int(resposta.headers["X-WP-TotalPages"])
-            yield from json.load(resposta)
-        if pagina >= paginas:
-            break
-        pagina += 1
+def ler(caminho):
+    with caminho.open(encoding="utf-8", newline="") as arquivo:
+        return list(csv.DictReader(arquivo))
 
 
-def preparar(saida):
-    candidatos = {}
-    for p in listar_publicacoes():
-        titulo = html.unescape(re.sub(r"<[^>]*>", "", p["title"]["rendered"])).strip()
-        if titulo:
-            candidatos.setdefault(normalizar(titulo), {
-                "id_aesa": p["id"], "publicado_em": p["date"], "modificado_em": p["modified"],
-                "url": p["link"], "titulo": titulo,
-            })
+def preparar(pasta):
+    candidatos = {r["id_aesa"]: r for r in ler(pasta / "classificacao_automatica.csv")}
+    fichas = [pasta / f"anotador_{n}.csv" for n in (1, 2)]
+    existentes = [ler(f) if f.exists() else [] for f in fichas]
+    if any(r.get("rotulo") or r.get("nota") for ficha in existentes for r in ficha):
+        raise ValueError("Há anotações nas fichas. Preserve-as antes de gerar uma nova amostra.")
+
+    if len(candidatos) < 220:
+        raise ValueError("O corpus precisa ter pelo menos 220 textos distintos.")
     rng = random.Random(621)
-    tem_termo = [item for chave, item in candidatos.items() if TERMOS.search(chave)]
-    outros = [item for chave, item in candidatos.items() if not TERMOS.search(chave)]
-    relevantes = rng.sample(tem_termo, min(len(tem_termo), 140))
-    amostra = relevantes + rng.sample(outros, min(len(outros), 220-len(relevantes)))
-    if len(amostra) < 200:
-        raise RuntimeError("O corpus retornou menos de 200 candidatos distintos.")
-    rng.shuffle(amostra)
-    saida.mkdir(parents=True, exist_ok=True)
-    campos = ["id_aesa", "publicado_em", "modificado_em", "url", "titulo", "rotulo", "nota"]
-    for anotador in (1, 2):
-        with (saida / f"anotador_{anotador}.csv").open("w", encoding="utf-8", newline="") as arquivo:
-            escritor = csv.DictWriter(arquivo, fieldnames=campos)
+    if existentes[0]:
+        ids = list(dict.fromkeys(r["id_aesa"] for r in existentes[0] if r["id_aesa"] in candidatos))
+        reserva = sorted(set(candidatos) - set(ids))
+        ids = ids[:220] + rng.sample(reserva, max(220 - len(ids), 0))
+    else:
+        relevantes = [aid for aid, r in candidatos.items() if TERMOS.search(normalizar(r["titulo"]))]
+        outros = sorted(set(candidatos) - set(relevantes))
+        ids = rng.sample(sorted(relevantes), min(len(relevantes), 140))
+        ids.extend(rng.sample(outros, min(len(outros), 220 - len(ids))))
+        restantes = sorted(set(relevantes) - set(ids))
+        ids.extend(rng.sample(restantes, 220 - len(ids)))
+        rng.shuffle(ids)
+
+    amostra = [{campo: candidatos[aid][campo] for campo in CAMPOS_PUBLICOS} for aid in ids]
+    for ficha in fichas:
+        with ficha.open("w", encoding="utf-8", newline="") as arquivo:
+            escritor = csv.DictWriter(arquivo, fieldnames=[*CAMPOS_PUBLICOS, "rotulo", "nota"])
             escritor.writeheader()
             escritor.writerows(amostra)
-    print(f"{len(amostra)} candidatos; {len(relevantes)} com termo de triagem no título.")
+    print(f"{len(amostra)} textos do corpus deduplicado disponíveis nas duas fichas.")
 
 
 if __name__ == "__main__":

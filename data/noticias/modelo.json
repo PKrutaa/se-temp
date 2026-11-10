@@ -1,0 +1,9 @@
+{
+  "repositorio": "mlx-community/Qwen2.5-1.5B-Instruct-4bit",
+  "revisao": "8b403126fc14f14cfc99bb4cfa72ecbc129ea677",
+  "prompt": "Classifique este comunicado institucional sobre a Paraíba em apenas uma categoria.\n0: irrelevante para seca ou escassez hídrica na Paraíba. Monitoramento rotineiro, obras genéricas, meteorologia e chuva, sem menção a seca ou escassez no contexto.\n1: seca, estiagem, escassez ou risco hídrico na Paraíba, sem alerta operacional ou impacto concreto identificado.\n2: alerta operacional explícito, racionamento, restrição de uso, interrupção de abastecimento ou impacto concreto de escassez na Paraíba.\nUse o texto como evidência. O título pode ser insuficiente. Responda só 0, 1 ou 2.",
+  "tokens_max_corpo": 800,
+  "decodificacao": "argmax entre rótulos 0, 1 e 2 no primeiro token",
+  "fonte": "https://www.aesa.pb.gov.br/wp-json/wp/v2/posts",
+  "limite_publicacao_exclusivo": "2026-11-01"
+}

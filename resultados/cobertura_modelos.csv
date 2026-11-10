@@ -1,0 +1,21 @@
+modelo,horizonte,sum,size
+Gradient boosting,3,2483,2706
+Gradient boosting,4,2479,2706
+Gradient boosting,5,2473,2706
+Gradient boosting,6,2472,2706
+LSTM,3,2483,2706
+LSTM,4,2479,2706
+LSTM,5,2473,2706
+LSTM,6,2472,2706
+Persistência,3,2364,2706
+Persistência,4,2371,2706
+Persistência,5,2387,2706
+Persistência,6,2386,2706
+SARIMAX,3,2483,2706
+SARIMAX,4,2479,2706
+SARIMAX,5,2473,2706
+SARIMAX,6,2472,2706
+Sazonal,3,2494,2706
+Sazonal,4,2494,2706
+Sazonal,5,2494,2706
+Sazonal,6,2494,2706

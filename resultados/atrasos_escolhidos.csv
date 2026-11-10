@@ -1,0 +1,7 @@
+variavel,lag,median,count,selecionada
+temperatura_c,6,0.39923537217679733,130,True
+et_fluxo_mj_m2_dia,1,0.31973362527194044,130,True
+chuva_mm,2,0.24330600335434194,130,True
+monitor_local_severidade,6,0.19542683238455127,130,True
+monitor_pb_ge_s0_pct,6,0.1707791891027105,130,True
+nino34_anom_c,6,0.10210223388690304,130,True

@@ -1,0 +1,539 @@
+{
+  "fonte": "https://seira.aesa.pb.gov.br/api/",
+  "catalogo_endpoint": "reservatorio/listar?nivelEncurtamento=ALTO&filtrarMonitorados=true",
+  "historico_endpoint": "historico-reservatorio/por-reservatorio (periodo=month)",
+  "coleta_utc": "2026-11-10T18:57:19.204260+00:00",
+  "inicio_inclusivo": "2012-01-01",
+  "fim_exclusivo": "2026-11-01",
+  "acudes": 131,
+  "linhas": 23318,
+  "sha256_csv": "4673c390d9c577e00158f16ee57bcb1b1f06b2f2a99da99d03fee97e6e366663",
+  "por_acude": {
+    "1": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "2": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "3": {
+      "meses_observados": 167,
+      "meses_ausentes": 11
+    },
+    "4": {
+      "meses_observados": 175,
+      "meses_ausentes": 3
+    },
+    "5": {
+      "meses_observados": 145,
+      "meses_ausentes": 33
+    },
+    "6": {
+      "meses_observados": 166,
+      "meses_ausentes": 12
+    },
+    "7": {
+      "meses_observados": 163,
+      "meses_ausentes": 15
+    },
+    "8": {
+      "meses_observados": 168,
+      "meses_ausentes": 10
+    },
+    "9": {
+      "meses_observados": 164,
+      "meses_ausentes": 14
+    },
+    "10": {
+      "meses_observados": 165,
+      "meses_ausentes": 13
+    },
+    "11": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "12": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "13": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "15": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "16": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "18": {
+      "meses_observados": 172,
+      "meses_ausentes": 6
+    },
+    "19": {
+      "duplicatas_mensais": 7,
+      "meses_observados": 90,
+      "meses_ausentes": 88
+    },
+    "20": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "21": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "23": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "24": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "25": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "26": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "27": {
+      "meses_observados": 170,
+      "meses_ausentes": 8
+    },
+    "28": {
+      "meses_observados": 167,
+      "meses_ausentes": 11
+    },
+    "29": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "30": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "31": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "32": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "33": {
+      "meses_observados": 166,
+      "meses_ausentes": 12
+    },
+    "34": {
+      "meses_observados": 168,
+      "meses_ausentes": 10
+    },
+    "35": {
+      "meses_observados": 175,
+      "meses_ausentes": 3
+    },
+    "36": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "37": {
+      "meses_observados": 175,
+      "meses_ausentes": 3
+    },
+    "38": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "39": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "40": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "41": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "42": {
+      "meses_observados": 163,
+      "meses_ausentes": 15
+    },
+    "43": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "44": {
+      "meses_observados": 175,
+      "meses_ausentes": 3
+    },
+    "45": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "46": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "47": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "48": {
+      "meses_observados": 172,
+      "meses_ausentes": 6
+    },
+    "49": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "50": {
+      "meses_observados": 172,
+      "meses_ausentes": 6
+    },
+    "51": {
+      "meses_observados": 167,
+      "meses_ausentes": 11
+    },
+    "52": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "53": {
+      "meses_observados": 170,
+      "meses_ausentes": 8
+    },
+    "54": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "55": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "56": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "57": {
+      "meses_observados": 175,
+      "meses_ausentes": 3
+    },
+    "59": {
+      "meses_observados": 170,
+      "meses_ausentes": 8
+    },
+    "60": {
+      "meses_observados": 165,
+      "meses_ausentes": 13
+    },
+    "61": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "62": {
+      "meses_observados": 175,
+      "meses_ausentes": 3
+    },
+    "63": {
+      "meses_observados": 170,
+      "meses_ausentes": 8
+    },
+    "65": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "66": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "67": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "68": {
+      "meses_observados": 170,
+      "meses_ausentes": 8
+    },
+    "69": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "70": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "71": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "72": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "74": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "75": {
+      "meses_observados": 162,
+      "meses_ausentes": 16
+    },
+    "76": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "77": {
+      "meses_observados": 167,
+      "meses_ausentes": 11
+    },
+    "78": {
+      "meses_observados": 156,
+      "meses_ausentes": 22
+    },
+    "80": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "81": {
+      "meses_observados": 160,
+      "meses_ausentes": 18
+    },
+    "82": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "83": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "84": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "86": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "87": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "88": {
+      "meses_observados": 152,
+      "meses_ausentes": 26
+    },
+    "89": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "90": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "91": {
+      "meses_observados": 161,
+      "meses_ausentes": 17
+    },
+    "92": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "93": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "95": {
+      "meses_observados": 166,
+      "meses_ausentes": 12
+    },
+    "96": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "97": {
+      "meses_observados": 157,
+      "meses_ausentes": 21
+    },
+    "98": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "99": {
+      "meses_observados": 167,
+      "meses_ausentes": 11
+    },
+    "100": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "101": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "102": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "103": {
+      "meses_observados": 169,
+      "meses_ausentes": 9
+    },
+    "104": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "105": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "106": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "107": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "109": {
+      "meses_observados": 164,
+      "meses_ausentes": 14
+    },
+    "110": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "111": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "114": {
+      "meses_observados": 172,
+      "meses_ausentes": 6
+    },
+    "117": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "118": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "119": {
+      "meses_observados": 167,
+      "meses_ausentes": 11
+    },
+    "122": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "123": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "124": {
+      "meses_observados": 174,
+      "meses_ausentes": 4
+    },
+    "125": {
+      "meses_observados": 177,
+      "meses_ausentes": 1
+    },
+    "126": {
+      "meses_observados": 178,
+      "meses_ausentes": 0
+    },
+    "128": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "129": {
+      "meses_observados": 172,
+      "meses_ausentes": 6
+    },
+    "130": {
+      "duplicatas_mensais": 1,
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "131": {
+      "meses_observados": 125,
+      "meses_ausentes": 53
+    },
+    "134": {
+      "meses_observados": 168,
+      "meses_ausentes": 10
+    },
+    "135": {
+      "meses_observados": 176,
+      "meses_ausentes": 2
+    },
+    "136": {
+      "meses_observados": 173,
+      "meses_ausentes": 5
+    },
+    "137": {
+      "meses_observados": 168,
+      "meses_ausentes": 10
+    },
+    "139": {
+      "meses_observados": 144,
+      "meses_ausentes": 34
+    },
+    "140": {
+      "meses_observados": 171,
+      "meses_ausentes": 7
+    },
+    "142": {
+      "meses_observados": 153,
+      "meses_ausentes": 25
+    },
+    "143": {
+      "meses_observados": 152,
+      "meses_ausentes": 26
+    },
+    "145": {
+      "meses_observados": 120,
+      "meses_ausentes": 58
+    },
+    "146": {
+      "meses_observados": 120,
+      "meses_ausentes": 58
+    },
+    "154": {
+      "meses_observados": 58,
+      "meses_ausentes": 120
+    },
+    "157": {
+      "meses_observados": 84,
+      "meses_ausentes": 94
+    },
+    "158": {
+      "meses_observados": 82,
+      "meses_ausentes": 96
+    },
+    "159": {
+      "meses_observados": 80,
+      "meses_ausentes": 98
+    },
+    "160": {
+      "meses_observados": 95,
+      "meses_ausentes": 83
+    },
+    "161": {
+      "meses_observados": 88,
+      "meses_ausentes": 90
+    },
+    "162": {
+      "meses_observados": 86,
+      "meses_ausentes": 92
+    }
+  }
+}

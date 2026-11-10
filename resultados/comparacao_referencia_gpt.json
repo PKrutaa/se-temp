@@ -1,0 +1,64 @@
+{
+  "referencia": {
+    "modelo": "gpt-6.1-sol",
+    "esforco": "medium",
+    "tipo": "automatica"
+  },
+  "n": 220,
+  "classes": [
+    0,
+    1,
+    2
+  ],
+  "suporte_referencia": [
+    187,
+    24,
+    9
+  ],
+  "metodos": {
+    "qwen": {
+      "concordancia_bruta": 0.2545454545454545,
+      "kappa_ponderado_quadratico": 0.10071942446043158,
+      "F1_macro_em_relacao_ao_gpt": 0.22041369421193943,
+      "matriz_gpt_linhas_metodo_colunas": [
+        [
+          39,
+          86,
+          62
+        ],
+        [
+          0,
+          10,
+          14
+        ],
+        [
+          0,
+          2,
+          7
+        ]
+      ]
+    },
+    "lexical": {
+      "concordancia_bruta": 0.85,
+      "kappa_ponderado_quadratico": 0.5601675552170602,
+      "F1_macro_em_relacao_ao_gpt": 0.7040000000000001,
+      "matriz_gpt_linhas_metodo_colunas": [
+        [
+          171,
+          16,
+          0
+        ],
+        [
+          14,
+          10,
+          0
+        ],
+        [
+          3,
+          0,
+          6
+        ]
+      ]
+    }
+  }
+}

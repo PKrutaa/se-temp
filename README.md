@@ -7,6 +7,7 @@ Projeto de Séries Temporais da UFPB, tópico 6. Previsão de volume em porcenta
 - [Métricas por modelo e horizonte](resultados/metricas_modelos.csv), [Diebold–Mariano](resultados/diebold_mariano.csv) e [previsões por açude](resultados/previsoes_modelo_escolhido.csv)
 - [Relatório técnico](entregas/Relatorio_Seca_Acudes_PB.pdf) e [slides](entregas/Apresentacao_Seca_Acudes_PB.pptx)
 - [Ablação de notícias](resultados/ablacao_noticias.csv) e [auditoria dos rótulos](resultados/validacao_noticias.json)
+- [Comparação com GPT-6.1 Sol como referência automática](docs/referencia_gpt.md)
 
 ## Reproduzir
 
